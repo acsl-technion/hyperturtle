@@ -1,0 +1,6 @@
+[submodule "mutilate"]
+	path = mutilate
+	url = https://github.com/jkrbs/mutilate.git
+[submodule "wrk"]
+	path = wrk
+	url = https://github.com/giltene/wrk2.git
