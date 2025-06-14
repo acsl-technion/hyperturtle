@@ -7,3 +7,7 @@
 [submodule "hyperturtle-qemu"]
 	path = hyperturtle-qemu
 	url = git@github.com:OriBenZur/hyperturtle-qemu.git
+[submodule "hyperturtle-linux"]
+	path = hyperturtle-linux
+	url = git@github.com:OriBenZur/hyperturtle-linux.git
+	branch = nestedVirt-HUC
