@@ -4,3 +4,6 @@
 [submodule "wrk"]
 	path = wrk
 	url = https://github.com/giltene/wrk2.git
+[submodule "hyperturtle-qemu"]
+	path = hyperturtle-qemu
+	url = git@github.com:OriBenZur/hyperturtle-qemu.git
