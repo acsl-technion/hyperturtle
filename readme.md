@@ -3,6 +3,7 @@ This repository contains the source code and evaluation scripts for the USENIX A
 
 ## Repository Structure
 - Linux Kernel for L0 and L1
+- Libbpf for L0 (Required for L0 QEMU)
 - L0 QEMU
 - Hyperupcall programs and infrastructure
 - Evaluation scripts and tools
@@ -13,15 +14,21 @@ The used `Ubuntu 20.04.6 LTS` as L0 OS and build environment.
 ## Build Instructions
 1. Clone repository with submodules
 
-2. Build L0 Kernel
+2. Build and install L0 kernel
 
-3. Create L1 VM
+3. Build and install libbpf
 
-4. Setup L1
+4. Build L0 QEMU 
 
-5. Build Hyperupcall programs on L1
+5. Create L1 VM with the above kernel.
 
-6. Start L2 VM
+6. Launch L1 VM with the `launch_virt.sh` script
+
+7. (Optional) Install Kata Containers in L1
+
+8. Build Hyperupcall programs on L1
+
+9. Start L2 VM (either via QEMU or Kata Containers).
 
 ## Evaluation
 For the network benchmarks, a second identical machine is connected via 100 gigabit ethernet back-to-back as described in the paper.
