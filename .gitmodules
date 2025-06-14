@@ -11,3 +11,6 @@
 	path = hyperturtle-linux
 	url = git@github.com:OriBenZur/hyperturtle-linux.git
 	branch = nestedVirt-HUC
+[submodule "hyperturtle-libbpf"]
+	path = hyperturtle-libbpf
+	url = git@github.com:OriBenZur/hyperturtle-libbpf.git
