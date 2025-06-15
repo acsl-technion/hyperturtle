@@ -49,7 +49,8 @@ For optimal performance, pin L1-vCPUs to L0-pCPUs and pin L2-vCPUs to L1-vCPUs.
 To start a Kata Container with a directly attached virtual device, you need to:
 
 ```
-# Override the driver of a virtio-nic. You might need to install driverctl. Replace <pci-id> - example: 0000:01:00.0 
+# Override the driver of a virtio-nic. You might need to install driverctl. Replace <pci-id> - example: 0000:01:00.0
+sudo apt install driverctl
 sudo driverctl set-override <pci-id> vfio-pci
 
 # Run the container without docker network, but attach a device. You might need to add --cap-add=NET_ADMIN
