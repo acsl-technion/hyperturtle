@@ -37,7 +37,7 @@ int main() {
         printf("Failed to load hyperupcall\n");
         return -1;
     }
-    program_slot = link_hyperupcall(hyperupcall_slot, "packet_counter\0", 0, NETDEV_IFINDEX);
+    program_slot = link_hyperupcall(hyperupcall_slot, "packet_counter\0", 0, NETDEV_INDEX);
     if (program_slot < 0) {
         printf("Failed to link hyperupcall\n");
         unload_hyperupcall(hyperupcall_slot);

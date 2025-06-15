@@ -40,13 +40,13 @@ int main() {
         printf("Failed to load hyperupcall\n");
         return -1;
     }
-    nic_prog_slot = link_hyperupcall(hyperupcall_slot, "tcptop_int\0", 2, NETDEV_IFINDEX);
+    nic_prog_slot = link_hyperupcall(hyperupcall_slot, "tcptop_int\0", 2, NETDEV_INDEX);
     if (nic_prog_slot < 0) {
         printf("Failed to link hyperupcall nic_prog_slot\n");
         unload_hyperupcall(hyperupcall_slot);
         return -1;
     }
-    bridge_prog_slot = link_hyperupcall(hyperupcall_slot, "tcptop_br\0", 0, NETDEV_IFINDEX);
+    bridge_prog_slot = link_hyperupcall(hyperupcall_slot, "tcptop_br\0", 0, NETDEV_INDEX);
     if (bridge_prog_slot < 0) {
         printf("Failed to link hyperupcall bridge_prog_slot\n");
         unlink_hyperupcall(hyperupcall_slot, nic_prog_slot);

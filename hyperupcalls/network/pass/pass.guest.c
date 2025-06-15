@@ -26,7 +26,7 @@ int main() {
         printf("Failed to load hyperupcall\n");
         return -1;
     }
-    program_slot = link_hyperupcall(hyperupcall_slot, "pass\0", HOOK_ID, NETDEV_IFINDEX);
+    program_slot = link_hyperupcall(hyperupcall_slot, "pass\0", HOOK_ID, NETDEV_INDEX);
     if (program_slot < 0) {
         printf("Failed to link hyperupcall\n");
         unload_hyperupcall(hyperupcall_slot);
