@@ -15,6 +15,13 @@ The used `Ubuntu 20.04.6 LTS` as L0 OS and build environment.
 1. Clone repository with submodules
 
 2. Build and install the [kernel](https://github.com/OriBenZur/hyperturtle-linux/tree/ff0190f81a93bff05ab43ed5218ae7ba558a3b43) in L0.
+```
+cd hyperturtle-linux
+make hyperturtle_defconfig
+make -j$(nproc)
+sudo make install
+sudo make modules_install
+```
 
 3. Build and install [libbpf](https://github.com/OriBenZur/hyperturtle-libbpf/tree/950a896dc34e4bd97f971af0c4a7783dc51049a2).
 
@@ -33,10 +40,12 @@ make
 
 8. (Optional) Install Kata Containers in L1.
 
-9. Build Hyperupcall programs on L1 (TODO: add hyperupcall programs to repository).
+9. Build Hyperupcall programs on L1.
+In `hyperupcalls/hyperupcall.h`, change the value of `NETDEV_INDEX` such that it'll reference the i'th network device connected to L0 (can see the numbering via `lspci`).
 
-10. Start L2 VM (either via QEMU or Kata Containers). The Dockerfiles for the containers used in the paper are available [here](containers).
-TODO: add guide to start a Kata Container with a directly assigned virtual device
+11. Start L2 VM (either via QEMU or Kata Containers). The Dockerfiles for the containers used in the paper are available [here](containers).
+For optimal performance, pin L1-vCPUs to L0-pCPUs and pin L2-vCPUs to L1-vCPUs.
+TODO: add guide to start a Kata Container with a directly assigned virtual device.
 
 ## Evaluation
 For the network benchmarks, a second identical machine is connected via 100 gigabit ethernet back-to-back as described in the paper.
