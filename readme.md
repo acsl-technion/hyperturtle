@@ -14,21 +14,29 @@ The used `Ubuntu 20.04.6 LTS` as L0 OS and build environment.
 ## Build Instructions
 1. Clone repository with submodules
 
-2. Build and install L0 kernel
+2. Build and install the [kernel](https://github.com/OriBenZur/hyperturtle-linux/tree/ff0190f81a93bff05ab43ed5218ae7ba558a3b43) in L0.
 
-3. Build and install libbpf
+3. Build and install [libbpf](https://github.com/OriBenZur/hyperturtle-libbpf/tree/950a896dc34e4bd97f971af0c4a7783dc51049a2).
 
-4. Build L0 QEMU 
+4. Build [L0 QEMU](https://github.com/OriBenZur/hyperturtle-qemu/tree/da3218d45fb8611d73edc3c0eb5c6b20658c86b2). Ensure it uses the libbpf version you installed.
+```
+cd hyperturtle-qemu
+mkdir build
+cd build
+../configure --target-list=x86_64-softmmu
+make
+```
 
-5. Create L1 VM with the above kernel.
+6. Create L1 VM with the above kernel.
 
-6. Launch L1 VM with the `launch_virt.sh` script
+7. Launch L1 VM with the `launch_virt.sh` script (TODO: add `launch_virt.sh`).
 
-7. (Optional) Install Kata Containers in L1
+8. (Optional) Install Kata Containers in L1.
 
-8. Build Hyperupcall programs on L1
+9. Build Hyperupcall programs on L1 (TODO: add hyperupcall programs to repository).
 
-9. Start L2 VM (either via QEMU or Kata Containers).
+10. Start L2 VM (either via QEMU or Kata Containers). The Dockerfiles for the containers used in the paper are available [here](containers).
+TODO: add guide to start a Kata Container with a directly assigned virtual device
 
 ## Evaluation
 For the network benchmarks, a second identical machine is connected via 100 gigabit ethernet back-to-back as described in the paper.
