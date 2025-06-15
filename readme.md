@@ -86,9 +86,6 @@ python3 get_memcached_data.py
 
 The mutilate results will be stored in `results/memcached`. The plots are stored in `$CWD`.
 
-## License
-The hyperupcall programs and scripts are licensed under TODO. All submodules are licensed individually.
-
 ## Citation
 When referring to this repository, please cite our publication.
 
