@@ -23,7 +23,7 @@ sudo make install
 sudo make modules_install
 ```
 
-3. Build and install [libbpf](https://github.com/OriBenZur/hyperturtle-libbpf/tree/950a896dc34e4bd97f971af0c4a7783dc51049a2).
+3. Build and install [libbpf](https://github.com/OriBenZur/hyperturtle-linux/tree/ff0190f81a93bff05ab43ed5218ae7ba558a3b43/tools/lib/bpf).
 
 4. Build [L0 QEMU](https://github.com/OriBenZur/hyperturtle-qemu/tree/da3218d45fb8611d73edc3c0eb5c6b20658c86b2). Ensure it uses the libbpf version you installed.
 ```
@@ -34,16 +34,16 @@ cd build
 make
 ```
 
-6. Create L1 VM with the above kernel.
+5. Create L1 VM with the kernel + libbpf above.
 
-7. Launch L1 VM with the `launch_virt.sh` script (TODO: add `launch_virt.sh`).
+6. Launch L1 VM with the `launch_virt.sh` script (TODO: add `launch_virt.sh`).
 
-8. (Optional) Install Kata Containers in L1.
+7. (Optional) Install Kata Containers in L1.
 
-9. Build Hyperupcall programs on L1.
+8. Build Hyperupcall programs on L1.
 In `hyperupcalls/hyperupcall.h`, change the value of `NETDEV_INDEX` such that it'll reference the i'th network device connected to L0 (can see the numbering via `lspci`).
 
-11. Start L2 VM (either via QEMU or Kata Containers). The Dockerfiles for the containers used in the paper are available [here](containers).
+9. Start L2 VM (either via QEMU or Kata Containers). The Dockerfiles for the containers used in the paper are available [here](containers).
 For optimal performance, pin L1-vCPUs to L0-pCPUs and pin L2-vCPUs to L1-vCPUs.
 
 To start a Kata Container with a directly attached virtual device, you need to:
