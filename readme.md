@@ -58,31 +58,6 @@ docker run --runtime io.containerd.kata.v2 --device /dev/vfio/<device-index> --n
 
 # You might need to acquire an IP address from inside the container. Assuming the name of the container is "hyperturtle-test"
 docker exec hyperturtle-test dhclient eth0
-```
-
-## Evaluation
-For the network benchmarks, a second identical machine is connected via 100 gigabit ethernet back-to-back as described in the paper.
-To run the memcached benchmarks as an example.
-TODO: fill evaluation
-
-1. Clone repository to second host
-```sh
-
-```
-
-2. Install mutilate
-```sh
-
-```
-
-3. Configure benchmarking scripts
-
-
-4. Run benchmark
-```sh
-python3 do_all_bench.py
-python3 get_memcached_data.py
-```
 
 The mutilate results will be stored in `results/memcached`. The plots are stored in `$CWD`.
 
@@ -90,6 +65,17 @@ The mutilate results will be stored in `results/memcached`. The plots are stored
 When referring to this repository, please cite our publication.
 
 ```bibtex
-
+@inproceedings {hyperturtle,
+author = {Ori Ben Zur and Jakob Krebs and Shai Aviram Bergman and Mark Silberstein},
+title = {Accelerating Nested Virtualization with HyperTurtle},
+booktitle = {2025 USENIX Annual Technical Conference (USENIX ATC 25)},
+year = {2025},
+isbn = {ISBN 978-1-939133-48-9},
+address = {Boston, MA},
+pages = {987--1002},
+url = {https://www.usenix.org/conference/atc25/presentation/zur},
+publisher = {USENIX Association},
+month = jul
+}
 ```
 
