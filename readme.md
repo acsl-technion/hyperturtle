@@ -46,19 +46,19 @@ In `hyperupcalls/hyperupcall.h`, change the value of `NETDEV_INDEX` such that it
 9. Start L2 VM (either via QEMU or Kata Containers). The Dockerfiles for the containers used in the paper are available [here](containers).
 For optimal performance, pin L1-vCPUs to L0-pCPUs and pin L2-vCPUs to L1-vCPUs.
 
-# Override the driver of a virtio-nic. You might need to install driverctl. Replace <pci-id> - example: 0000:01:00.0
+# How to start a container with hyperupcalls for networking
+1. Override the driver of a virtio-nic. \\
+Note: You might need to install driverctl. Replace <pci-id> - example: 0000:01:00.0
 ```
 sudo apt install driverctl
 sudo driverctl set-override <pci-id> vfio-pci
 ```
-# Run the container without docker network, but attach a device. You might need to add --cap-add=NET_ADMIN
+2. Run the container without docker network, but attach a device. You might need to add --cap-add=NET_ADMIN.
 ```
 docker run --runtime io.containerd.kata.v2 --device /dev/vfio/<device-index> --network=none <image-name>
 ```
-# You might need to acquire an IP address from inside the container. Assuming the name of the container is "hyperturtle-test"
+3. You might need to acquire an IP address from inside the container. Assuming the name of the container is "hyperturtle-test"
 docker exec hyperturtle-test dhclient eth0
-
-The mutilate results will be stored in `results/memcached`. The plots are stored in `$CWD`.
 
 ## Citation
 When referring to this repository, please cite our publication.
