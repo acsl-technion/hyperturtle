@@ -60,6 +60,8 @@ docker run --runtime io.containerd.kata.v2 --device /dev/vfio/<device-index> --n
 3. You might need to acquire an IP address from inside the container. Assuming the name of the container is "hyperturtle-test"
 docker exec hyperturtle-test dhclient eth0
 
+4. Attach a networking hyperupcall (see hyperupcalls folder)
+
 ## Citation
 When referring to this repository, please cite our publication.
 
